@@ -54,6 +54,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        Button delectButton = (Button) findViewById(R.id.delect_data);
+        delectButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SQLiteDatabase db = dbHelper.getWritableDatabase();
+                db.delete("Book","pages > ?", new String[]{"500"});
+            }
+        });
+
     }
 
 }
